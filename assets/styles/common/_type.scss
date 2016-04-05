@@ -1,0 +1,17 @@
+body, p {
+  font-family: $base-font;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $base-header-font;
+  margin: 0.2rem 0;
+}
+
+a {
+  color: $primary-color;
+
+  &:hover, &:focus {
+    color: darken( $primary-color, 5 );
+  }
+}

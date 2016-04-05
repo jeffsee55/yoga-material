@@ -1,0 +1,37 @@
+.testimonials__section {
+
+  .unslider {
+    position: relative;
+
+    .testimonials {
+      padding: 5rem 0;
+      background: url(../images/stardust.png);
+
+      ul.testimonials__list {
+
+        li.testimonials__list__item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          div.quote {
+            width: 300px;
+            color: white;
+          }
+        }
+      }
+    }
+
+    a.unslider-arrow {
+      top: 0;
+      bottom: 0;
+    }
+
+    nav.unslider-nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

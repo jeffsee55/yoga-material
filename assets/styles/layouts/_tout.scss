@@ -1,0 +1,25 @@
+.tout-section {
+  background-color: #FFF;
+  padding: 2rem;
+
+  .tout-card {
+    h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    img {
+      display: block;
+      margin: 0 auto 1rem;
+      width: 130px;
+    }
+    @media (max-width: $grid-desktop-breakpoint) {
+      p {
+        text-align: center;
+      }
+    }
+    a {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

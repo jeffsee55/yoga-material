@@ -1,0 +1,22 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "material-design-lite": "^1.1.3",
+    "unslider": "^2.0.3"
+  },
+  "overrides" : {
+    "unslider" : {
+      "main" : [
+        "dist/css/unslider.css",
+        "dist/css/unslider-dots.css",
+        "src/js/unslider.js"
+      ]
+    }
+  }
+}

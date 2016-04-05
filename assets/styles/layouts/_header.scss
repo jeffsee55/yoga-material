@@ -1,0 +1,22 @@
+.header {
+  background-color: $primary-color;
+  background-image: url(../images/header-bg.png);
+  height: 150px;
+  justify-content: space-between;
+}
+
+.brand {}
+
+.main-nav {
+
+  .main-nav__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+
+    .mdl-button {
+      color: #666;
+    }
+  }
+}
