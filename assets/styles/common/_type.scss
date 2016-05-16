@@ -1,17 +1,25 @@
 body, p {
   font-family: $base-font;
-  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #666;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $base-header-font;
-  margin: 0.2rem 0;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  color: $earth;
+}
+
+h1, h2, h3 {
+  letter-spacing: 4px;
 }
 
 a {
-  color: $primary-color;
+  color: $color-accent;
 
   &:hover, &:focus {
-    color: darken( $primary-color, 5 );
+    color: darken( $color-accent, 5 );
   }
 }

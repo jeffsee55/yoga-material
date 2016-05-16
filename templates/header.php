@@ -1,5 +1,16 @@
+<?php use Roots\Sage\Titles; ?>
+
 <header class="header mdl-grid">
-  <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+
+  <div class="page-header">
+    <?php if( is_front_page() ) :
+      echo '<img class="brand-logo" src="' . get_template_directory_uri() . '/dist/images/yogawareness.png">';
+    else :
+      echo '<img class="brand-logo brand-logo-small" src="' . get_template_directory_uri() . '/dist/images/yogawareness.png">';
+      echo '<h1>' . Titles\title() . '</h1>';
+    endif; ?>
+  </div>
+
   <nav class="main-nav mdl-navigation">
     <?php
     if (has_nav_menu('primary_navigation')) :
@@ -7,4 +18,5 @@
     endif;
     ?>
   </nav>
+
 </header>

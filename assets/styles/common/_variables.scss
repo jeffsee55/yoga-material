@@ -8,6 +8,13 @@ $sidebar-sm-columns:    4;
 // Colors
 $primary-color:         #BCE8F4;
 $card-color:            #FAF9F9;
+$secondary-color:       #3F51B5;
+$earth:                 #6A7B73;
+$color-primary: $primary-color;
+$color-primary-dark: darken( $primary-color, 5 );
+$color-accent: #76C0D4;
+$color-primary-contrast: $secondary-color;
+$color-accent-contrast: $color-primary;
 
 // Buttons
 $button-padding: 0.5rem 1rem;
@@ -16,5 +23,9 @@ $button-padding: 0.5rem 1rem;
 $default-shadow: 0px 2px 4px 1px transparentize( #000, 0.8 );
 
 // Type
-$base-font: "Roboto Mono", serif;
-$base-header-font: $base-font;
+$base-font: "Roboto", serif;
+/*$base-header-font: "Nothing You Could Do", serif;*/
+$base-header-font: "Montserrat", serif;
+
+// Shadow
+$box-shadow: 2px 2px 4px 2px #D0D0D0;

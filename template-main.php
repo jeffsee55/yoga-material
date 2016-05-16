@@ -6,34 +6,43 @@
 while (have_posts()) : the_post();
   if( have_rows('info_card') ):
     while ( have_rows('info_card') ) : the_row();
-      render_info_card( 
-        $content = get_sub_field( 'card_content' ),
-        $attachment = get_sub_field("card_attachment"),
-        $options = array(
-          'reverse' => false,
-          'background_image' => get_sub_field( 'card_background' ),
-          'background_size' => get_sub_field( 'background_size' )
-        )
-      );
+        render_info_card( 
+          $content = get_sub_field( 'card_content' ),
+          $attachment = get_sub_field("card_attachment"),
+          $accent = get_sub_field("accent"),
+          $options = array(
+            'reverse' => false,
+            'background_image' => get_sub_field( 'card_background' ),
+            'background_size' => get_sub_field( 'background_size' ),
+            'reverse' => get_sub_field( 'reverse' ),
+            'order' => get_sub_field('order')
+          )
+        );
     endwhile;
   endif;
 
-  render_testimonials();
+  if( have_rows('testimonial') ):
+    render_testimonials();
+  endif;
 
-  $tout_background = get_field( 'tout_background' );
-  printf( '<div class="tout-section mdl-grid" style="background-image: url( %s )">', $tout_background);
-    if( have_rows('tout') ):
+  if( have_rows('tout') ):
+    $tout_background = get_field( 'tout_background' );
+    $order = ( !empty( get_field('tout_order') ) ) ? get_field('tout_order') : '1';
+
+    printf( '<div class="tout__section section-container" style="background-image: url( %s ); order: %s">', $tout_background, $order);
+      echo '<h4>' . get_field('tout_title') . '</h4>';
+      echo '<div class="mdl-grid">';
       while ( have_rows('tout') ) : the_row();
         render_tout(
           $title = get_sub_field( 'tout_title' ),
           $image = get_sub_field( 'tout_image' ),
-          $text = 'This is a tout about something.',
-          $link = 'https://example.com',
-          $link_text = 'Learn More'
+          $text = get_sub_field( 'tout_text' ),
+          $link = get_sub_field( 'tout_link' ),
+          $link_text = get_sub_field( 'tout_link_text' )
         );
       endwhile;
-    endif;
-  echo '</div>';
+    echo '</div>';
+    echo '</div>';
+  endif;
 
 endwhile;
-

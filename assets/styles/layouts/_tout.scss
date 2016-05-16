@@ -1,6 +1,11 @@
-.tout-section {
+.tout__section {
   background-color: #FFF;
   padding: 2rem;
+
+  & > h4 {
+    text-align: center;
+  }
+
 
   .tout-card {
     h3 {
@@ -10,12 +15,10 @@
     img {
       display: block;
       margin: 0 auto 1rem;
-      width: 130px;
+      width: 250px;
     }
-    @media (max-width: $grid-desktop-breakpoint) {
-      p {
-        text-align: center;
-      }
+    p {
+      text-align: center;
     }
     a {
       display: block;

@@ -1,0 +1,10 @@
+.card {
+  background-color: #FFF;
+  padding: 2rem 3rem;
+  border-radius: 3px;
+  margin: 2rem 0.5rem;
+
+  @media (min-width: $grid-desktop-breakpoint) {
+    margin: 2rem auto;
+  }
+}

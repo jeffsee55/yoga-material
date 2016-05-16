@@ -1,22 +1,77 @@
 .header {
   background-color: $primary-color;
-  background-image: url(../images/header-bg.png);
-  height: 150px;
+  background-image: url(../images/header-bg.png),url(../images/header-bg.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: left, right;
+  background-size: auto, 50%;
   justify-content: space-between;
+  position: relative;
+
+  @media (max-width: $grid-tablet-breakpoint) {
+    overflow-x: hidden;
+    background-size: auto, 50%;
+  }
 }
 
-.brand {}
-
 .main-nav {
+
+  @media (max-width: $grid-tablet-breakpoint) {
+    &::-webkit-scrollbar { 
+      display: none; 
+    }
+  }
 
   .main-nav__list {
     display: flex;
     justify-content: space-between;
     list-style: none;
     padding-left: 0;
+    margin: 0;
 
     .mdl-button {
       color: #666;
     }
+  }
+}
+
+.page-header {
+  align-self: flex-end;
+  padding: 0 0 0 1.5rem;
+
+  @media (min-width: $grid-desktop-breakpoint) {
+    padding: 0 0 1rem 1rem;
+  }
+
+  .brand-logo {
+    width: 600px;
+    max-width: 100%;
+    position: relative;
+    bottom: -10px;
+
+    @media (min-width: $grid-desktop-breakpoint) {
+      bottom: -50px;
+    }
+
+    &.brand-logo-small {
+      bottom: -10px;
+      @media (min-width: $grid-tablet-breakpoint) {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: $grid-tablet-breakpoint) {
+      bottom: 0;
+    }
+  }
+
+  h1 {
+    @media (max-width: $grid-tablet-breakpoint) {
+      display: none;
+    }
+  }
+
+  h1 {
+    color: desaturate( darken($primary-color, 20), 20 );
+    margin: 0;
   }
 }

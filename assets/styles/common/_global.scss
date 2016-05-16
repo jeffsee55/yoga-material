@@ -1,3 +1,37 @@
 body {
   background-image: url(../images/stardust.png);
 }
+
+main.jsd-main {
+  display: flex;
+  flex-direction: column;
+
+  .section-container {
+    width: 100%;
+  }
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: $grid-desktop-breakpoint) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.8rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,36 @@
+.post-card.card {
+  max-width: 900px;
+  padding: 0;
+  background: url(../images/icon-bg.png);
+  background-color: #F1F1F1;
+
+  @media( min-width: $grid-tablet-breakpoint ) {
+    display: flex;
+  }
+
+  .entry-content {
+    padding: 2rem;
+    background-color: #FFF;
+    border-top: 1px solid #C1C1C1;
+
+    @media( min-width: $grid-tablet-breakpoint ) {
+      max-width: 500px;
+    }
+  }
+  .entry-image {
+    width: 200px;
+    background-size: cover;
+    height: 200px;
+    border-radius: 50%;
+    margin: 2rem auto;
+    box-shadow: 0 2px 2px 1px #989896;
+
+    @media( min-width: $grid-tablet-breakpoint ) {
+      box-shadow: none;
+      margin: 0;
+      border-radius: 0;
+      height: auto;
+      width: 320px;
+    }
+  }
+}

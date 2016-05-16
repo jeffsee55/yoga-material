@@ -1,0 +1,7 @@
+.mdl-button--raised.mdl-button--colored {
+  background: darken( $earth, 10 );
+
+  &:hover {
+    background: darken( $earth, 5 );
+  }
+}
