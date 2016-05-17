@@ -29,7 +29,7 @@ while (have_posts()) : the_post();
     $tout_background = get_field( 'tout_background' );
     $order = ( !empty( get_field('tout_order') ) ) ? get_field('tout_order') : '1';
 
-    printf( '<div class="tout__section section-container" style="background-image: url( %s ); order: %s">', $tout_background, $order);
+    printf( '<div class="tout__section section-container slant" style="background-image: url( %s ); order: %s">', $tout_background, $order);
       echo '<h4>' . get_field('tout_title') . '</h4>';
       echo '<div class="mdl-grid">';
       while ( have_rows('tout') ) : the_row();

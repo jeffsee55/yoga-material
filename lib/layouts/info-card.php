@@ -4,7 +4,7 @@ function render_info_card( $content, $attachment, $accent, $options) {
   $background_image = !empty( $options['background_image'] ) ? $options['background_image'] : get_template_directory_uri() . '/dist/images/stardust.png';
   $background_size = ( !empty($options['background_size']) && $options['background_size'] == 'Full') ? 'cover' : 'auto';
   $order = ( !empty($options['order']) ) ? $options['order'] : '1';
-  $section = sprintf( '<section class="section-container card__section" style="background-image: url(%s); background-size: %s; order: %s">', $background_image, $background_size, $order);
+  $section = sprintf( '<section class="section-container card__section slant" style="background-image: url(%s); background-size: %s; order: %s">', $background_image, $background_size, $order);
   $output = $section;
   $output .= '<div class="info-card card mdl-grid">';
 

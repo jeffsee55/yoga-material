@@ -1,3 +1,18 @@
 .section-container {
   padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+
+  &.slant::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 500px;
+    width: 150%;
+    transform: rotate(-6deg);
+    transform-origin: 6% 0;
+    background: url(../images/stardust.png);
+    bottom: -500px;
+    left: -25%;
+  }
 }

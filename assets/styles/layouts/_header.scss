@@ -1,15 +1,13 @@
 .header {
   background-color: $primary-color;
-  background-image: url(../images/header-bg.png),url(../images/header-bg.svg);
-  background-repeat: no-repeat, no-repeat;
-  background-position: left, right;
-  background-size: auto, 50%;
+  background-image: url(../images/header-bg.svg);
+  background-repeat: no-repeat;
+  background-position: -10%;
   justify-content: space-between;
   position: relative;
 
   @media (max-width: $grid-tablet-breakpoint) {
     overflow-x: hidden;
-    background-size: auto, 50%;
   }
 }
 
