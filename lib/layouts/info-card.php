@@ -31,5 +31,4 @@ function render_info_card( $content, $attachment, $accent, $options) {
 
   echo $output;
 
-} ?>
-
+}
