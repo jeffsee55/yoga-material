@@ -1,13 +1,19 @@
 <?php use Roots\Sage\Titles; ?>
 
-<header class="header mdl-grid">
+<?php if( is_front_page() ) : ?>
+  <header class="header mdl-grid">
+<?php else : ?>
+  <header class="header small mdl-grid">
+<?php endif; ?>
 
-  <div class="page-header">
-    <?php if( is_front_page() ) :
-      echo '<img class="brand-logo" src="' . get_template_directory_uri() . '/dist/images/yogawareness.png">';
-    else :
-      echo '<img class="brand-logo brand-logo-small" src="' . get_template_directory_uri() . '/dist/images/yogawareness.png">';
-      echo '<h1>' . Titles\title() . '</h1>';
+  <?php if( is_front_page() ) : ?>
+    <div class="page-header">
+      <a href="/" class="brand-logo"><img src="<?php echo get_theme_mod( 'jsd_material_primary_logo' ); ?>"></a>
+      <h1></h1>
+    <?php else : ?>
+    <div class="page-header small">
+      <a href="/" class="brand-logo brand-logo-small"><img src="<?php echo get_theme_mod( 'jsd_material_secondary_logo' ); ?>"></a>
+      <?php echo '<h1>' . Titles\title() . '</h1>';
     endif; ?>
   </div>
 

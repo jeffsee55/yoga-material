@@ -3,15 +3,36 @@
   position: relative;
   overflow: hidden;
 
-  &.slant::before {
+  &.slant-top {
+    padding-top: 15rem;
+  }
+
+  &.slant-bottom {
+    padding-bottom: 15rem;
+  }
+
+  &.slant-top::before{
     content: "";
-    display: block;
     position: absolute;
     height: 500px;
     width: 150%;
     transform: rotate(-6deg);
     transform-origin: 6% 0;
     background: url(../images/stardust.png);
+    display: block;
+    top: -320px;
+    left: -25%;
+  }
+
+  &.slant-bottom::after {
+    content: "";
+    position: absolute;
+    height: 500px;
+    width: 150%;
+    transform: rotate(-6deg);
+    transform-origin: 6% 0;
+    background: url(../images/stardust.png);
+    display: block;
     bottom: -500px;
     left: -25%;
   }

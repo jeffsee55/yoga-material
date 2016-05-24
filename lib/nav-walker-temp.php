@@ -18,21 +18,17 @@ use Roots\Soil\Utils;
 class NavWalker extends \Walker_Nav_Menu {
   private $cpt; // Boolean, is current post a custom post type
   private $archive; // Stores the archive page for current URL
-  private $curItem;
-
   public function __construct() {
     add_filter('nav_menu_css_class', array($this, 'cssClasses'), 10, 2);
     add_filter('nav_menu_item_id', '__return_null');
     $cpt           = get_post_type();
     $this->cpt     = in_array($cpt, get_post_types(array('_builtin' => false)));
     $this->archive = get_post_type_archive_link($cpt);
-    $this->index = 0;
   }
-
   public function checkCurrent($classes) {
     return preg_match('/(current[-_])|active/', $classes);
   }
-
+  // @codingStandardsIgnoreStart
   public function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
     $element->is_subitem = ((!empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth || ($max_depth === 0))));
     if ($element->is_subitem) {
@@ -79,17 +75,19 @@ class NavWalker extends \Walker_Nav_Menu {
 		$li_attributes = '';
 		$class_names = $value = '';
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-    $this->curItem = $item;
 		
+    // Add class and attribute to LI element that contains a submenu UL.
+    if ($args->walker->has_children){
+      $classes[] 		= 'dropdown';
+      $id = 'dropdown-menu-' . $item->ID;
+      $li_attributes .= 'data-dropdown="dropdown"';
+    } else {
+      $id = 'menu-' . $item->ID;
+    }
+		$classes[] = 'menu-item-' . $item->ID;
+
 		//If we are on the current page, add the active class to that menu item.
 		$classes[] = ($item->current) ? 'active' : '';
-    $id = 'menu-item-' . $item->ID;
-
-    if( $depth == 1 ) :
-      $classes[] = 'mdl-menu__item';
-    else :
-      $classes[] = '';
-    endif;
 
 		//Make sure you still add all of the WordPress classes.
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
@@ -97,13 +95,13 @@ class NavWalker extends \Walker_Nav_Menu {
 		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 		$output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
 
+    //if( $depth == 1 ) {
+    //}
 
 		//Add attributes to link element.
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-    if( $depth == 0 )
-      $attributes .= 'class="mdl-button mdl-js-button mdl-js-ripple-effect"';
 
     if( $args->walker->has_children ) :
       $attributes .= ! empty( $item->url ) ? ' href="javascript:void(0)"' : '';
@@ -111,19 +109,20 @@ class NavWalker extends \Walker_Nav_Menu {
       $attributes .= ! empty( $item->url ) ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
     endif;
 
+    $attributes .= ($args->walker->has_children) ? ' class="dropdown-toggle" data-toggle="dropdown"' : ''; 
 		$item_output = $args->before;
-		$item_output .= '<a '. $attributes .'>';
+		$item_output .= '<a class="mdl-button mdl-js-button mdl-js-ripple-effect"'. $attributes .'>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
     $item_output .= ($args->walker->has_children) ? ' <b class="caret"></b> ' : ''; 
 		$item_output .= '</a>';
 		$item_output .= $args->after;
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    //var_dump( $output );
 	}
 
   public function start_lvl( &$output, $depth = 0, $args = array() ) {
     $indent = str_repeat("\t", $depth);
-    $parent_id = $this->curItem->ID;
-    $output .= "\n$indent<ul class=\"mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect\" for=\"menu-item-$parent_id\">\n";
+    $output .= "\n$indent<ul class=\"mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect\" for=\"dropdown-menu-4\">\n";
   }
   
 }

@@ -22,6 +22,12 @@
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
+        $('.testimonials').unslider({
+          arrows: {
+            prev: '<a class="unslider-arrow prev"><span class="arrow arrow-left"></span></a>',
+            next: '<a class="unslider-arrow next"><span class="arrow arrow-right"></span></a>',
+          }
+        });
       }
     },
     // Home page
@@ -31,12 +37,6 @@
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
-        $('.testimonials').unslider({
-          arrows: {
-            prev: '<a class="unslider-arrow prev"><span class="arrow arrow-left"></span></a>',
-            next: '<a class="unslider-arrow next"><span class="arrow arrow-right"></span></a>',
-          }
-        });
       }
     },
     // About us page, note the change from about-us to about_us.

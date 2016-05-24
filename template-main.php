@@ -37,8 +37,7 @@ while (have_posts()) : the_post();
           $title = get_sub_field( 'tout_title' ),
           $image = get_sub_field( 'tout_image' ),
           $text = get_sub_field( 'tout_text' ),
-          $link = get_sub_field( 'tout_link' ),
-          $link_text = get_sub_field( 'tout_link_text' )
+          $link = get_sub_field( 'tout_link' )
         );
       endwhile;
     echo '</div>';

@@ -1,6 +1,17 @@
 .card__section {
   background-position: center bottom;
 
+  .card {
+    background-color: $card-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    box-shadow: $default-shadow;
+    padding: 0rem;
+    position: relative;
+  }
+
   .info-card {
     background-color: $card-color;
     display: flex;
@@ -23,69 +34,69 @@
     @media (min-width: $grid-tablet-breakpoint) {
       padding: 1rem;
     }
+  }
 
-    .info-card__text-container {
-      padding: 1rem;
-      position: relative;
-      z-index: 100;
+  .info-card__text-container {
+    padding: 1rem;
+    position: relative;
+    z-index: 100;
 
-      @media (min-width: $grid-tablet-breakpoint) {
-        padding: 2rem 0 2rem 3rem;
-      }
+    @media (min-width: $grid-tablet-breakpoint) {
+      padding: 2rem 0 2rem 3rem;
+    }
+  }
+
+  .info-card__image-container {
+    align-self: flex-start;
+    position: relative;
+    right: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    z-index: 100;
+
+    @media (min-width: $grid-desktop-breakpoint) {
+      right: -50px;
     }
 
-    .info-card__image-container {
-      align-self: flex-start;
-      position: relative;
-      right: 0;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      z-index: 100;
+    img {
+      border: 3px solid #FFF;
+      box-shadow: $default-shadow;
+      max-width: 100%;
+    }
+
+    .info-card__title {
+      position: absolute;
+      top: 2rem; left: 1rem;
 
       @media (min-width: $grid-desktop-breakpoint) {
-        right: -50px;
+        top: -1rem; left: -2rem;
       }
 
-      img {
-        border: 3px solid #FFF;
-        box-shadow: $default-shadow;
-        max-width: 100%;
-      }
-
-      .info-card__title {
-        position: absolute;
-        top: 2rem; left: 1rem;
+      h1 {
+        font-size: 4rem;
+        font-family: 'Montserrat';
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: left;
+        color: transparentize( $primary-color, 0.35 );
 
         @media (min-width: $grid-desktop-breakpoint) {
-          top: -1rem; left: -2rem;
+          font-size: 7rem;
         }
-
-        h1 {
-          font-size: 4rem;
-          font-family: 'Montserrat';
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          text-align: left;
-          color: transparentize( $primary-color, 0.35 );
-
-          @media (min-width: $grid-desktop-breakpoint) {
-            font-size: 7rem;
-          }
-        }
-      }
-    }
-
-  .reverse.info-card__image-container {
-      @media (min-width: $grid-desktop-breakpoint) {
-        right: 0;
-        left: -50px;
       }
     }
   }
 
-  .reverse.info-card__text-container {
-    @media (min-width: $grid-tablet-breakpoint) {
-      padding: 2rem 3rem 2rem 0;
+.reverse.info-card__image-container {
+    @media (min-width: $grid-desktop-breakpoint) {
+      right: 0;
+      left: -50px;
     }
+  }
+}
+
+.reverse.info-card__text-container {
+  @media (min-width: $grid-tablet-breakpoint) {
+    padding: 2rem 3rem 2rem 0;
   }
 }
